@@ -27,10 +27,8 @@ function App() {
         ></Header>
         <main className="container main-content">
           <Routes>
-            <Route path="/react-portfolio">
-              <Route path="/react-portfolio/about" element={<About />} />
-              <Route path="" element={<About />} />
-            </Route>
+            <Route path="/react-portfolio/about" element={<About />} />
+            <Route path="" element={<About />} />
             <Route path="/react-portfolio/portfolio" element={<Portfolio />} />
             <Route path="/react-portfolio/contact" element={<ContactForm />} />
             <Route path="/react-portfolio/resume" element={<Resume />} />
