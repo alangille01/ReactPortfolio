@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Header from "./components/Header";
+import About from "./components/About";
+import Portfolio from "./components/Portfolio";
+import ContactForm from "./components/ContactForm";
+import Resume from "./components/Resume";
+import Footer from "./components/Footer";
 
 function App() {
+  const initialSection = window.location.toString().split("/")[
+    window.location.toString().split("/").length - 1
+  ];
+
+  const [currentSection, setCurrentSection] = useState(initialSection);
+  useEffect(() => {
+    document.title = `Alexis Langille | ${currentSection}`;
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div id="root">
+        <Header
+          currentSection={currentSection}
+          setCurrentSection={setCurrentSection}
+        ></Header>
+        <main className="container main-content">
+          <Routes>
+            <Route path="/react-portfolio">
+              <Route path="/react-portfolio/about" element={<About />} />
+              <Route path="" element={<About />} />
+            </Route>
+            <Route path="/react-portfolio/portfolio" element={<Portfolio />} />
+            <Route path="/react-portfolio/contact" element={<ContactForm />} />
+            <Route path="/react-portfolio/resume" element={<Resume />} />
+          </Routes>
+        </main>
+
+        <Footer className="footer"></Footer>
+      </div>
+    </Router>
   );
 }
 
