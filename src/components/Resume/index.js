@@ -21,6 +21,24 @@ function Resume() {
     <section className="my-5">
       <h2>Resume</h2>
 
+      {/* Button to download resume */}
+      <div className="button-container flex-row justify-center align-center mt-3 mb-5">
+        <a href={resume} download="AlexisLangilleResume.pdf" className="btn mx-2">
+          Resume
+        </a>
+        {resumeLinks.map((item) => (
+          <a
+            className="btn mx-2"
+            key={item.name}
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {item.name}
+          </a>
+        ))}
+      </div>
+
       <p className="my-5">
         Full-stack web developer, with recent Coding Bootcamp completion
         certificate. Experience building MERN stack applications. Highly
@@ -42,6 +60,15 @@ function Resume() {
         <span className="italic">University of Toronto</span>
       </p>
       
+      {/* PDF rendered on the page */}
+      <div className="pdf-container">
+        <iframe
+          src={resume}
+          title="Alexis Langille Resume"
+          width="100%"
+          height="600px"
+        />
+      </div>
     </section>
   );
 }
