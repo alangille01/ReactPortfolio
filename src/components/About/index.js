@@ -9,7 +9,7 @@ function About() {
     <section className="text-light" id="about">
       <div className=" flex-row px-3 py-5 justify-space-around">
         <div className="my-auto px-auto col-5">
-          <h1 className="intro">Hi, I'm Alexis Langile!</h1>
+          <h1 className="intro">Hi, I'm Alexis Langille!</h1>
           <h5>A full-stack engineer based in Toronto Canada</h5>
           <div className="text-center">
             <button
